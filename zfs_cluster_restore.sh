@@ -58,8 +58,8 @@ fi
 
 
 # PERFORM INITIAL CHECKS:
-BACKUP_NAME=$(cat /root/scripts/lvm_magic/$1_backup.conf | grep backup_name |cut -d'=' -f2 | sed 's/ //g')
-ROOT_PASS=$(cat /root/scripts/lvm_magic/$1_backup.conf | grep root_pass |cut -d'=' -f2 | sed 's/ //g')
+BACKUP_NAME=$(cat /root/scripts/zfs_magic/$1_backup.conf | grep backup_name |cut -d'=' -f2 | sed 's/ //g')
+ROOT_PASS=$(cat /root/scripts/zfs_magic/$1_backup.conf | grep root_pass |cut -d'=' -f2 | sed 's/ //g')
 
 IS_UP=$(service mysqld_multi status | grep mysqld99 | grep not | wc -l)
 MOUNT_PRE=$(mount |grep db_restore | wc -l)
@@ -67,8 +67,8 @@ ZFS_PRE=$(zfs list |grep db_restore |wc -l)
 
 
 # PERFORM INITIAL CHECKS & CLEANUP:
-BACKUP_NAME=$(cat /root/scripts/lvm_magic/$1_backup.conf | grep backup_name |cut -d'=' -f2 | sed 's/ //g')
-ROOT_PASS=$(cat /root/scripts/lvm_magic/$1_backup.conf | grep root_pass |cut -d'=' -f2 | sed 's/ //g')
+BACKUP_NAME=$(cat /root/scripts/zfs_magic/$1_backup.conf | grep backup_name |cut -d'=' -f2 | sed 's/ //g')
+ROOT_PASS=$(cat /root/scripts/zfs_magic/$1_backup.conf | grep root_pass |cut -d'=' -f2 | sed 's/ //g')
 cleanup;
 
 OLD_PS=$PS1;
